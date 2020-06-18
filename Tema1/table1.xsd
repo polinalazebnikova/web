@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="таблица" type="table"/>
+  
+  <xs:complexType name="table">
+      <xs:sequence>
+        <xs:element name="студент" type="student" maxOccurs="unbounded" minOccurs="1"/>
+      </xs:sequence>
+   </xs:complexType>
+  
+  <xs:complexType name="student">
+    <xs:sequence>
+      <xs:element name="оценка" type="list" maxOccurs="4" minOccurs="4"/>
+    </xs:sequence>
+    <xs:attribute name="имя" type="xs:string"/>
+   </xs:complexType>
+  
+  <xs:complexType name="list">
+    <xs:simpleContent>
+      <xs:extension base="mark">
+        <xs:attribute name="дисциплина" type="les"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:simpleType name="mark"> 
+    <xs:restriction base="xs:integer"> 
+    <xs:pattern value="[2-5]"/> 
+    </xs:restriction> 
+  </xs:simpleType> 
+  
+  <xs:simpleType name="les"> 
+    <xs:restriction base="xs:string"> 
+    <xs:pattern value="Мультимедиа|Веб-дизайн|Графика|Логика"/> 
+    </xs:restriction> 
+</xs:simpleType> 
+</xs:schema>

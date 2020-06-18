@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+    <xs:simpleType name="название_города">
+      <xs:restriction base="xs:string">
+      <xs:pattern value="Санкт-Петербург" />
+      </xs:restriction>
+     </xs:simpleType>
+  
+    <xs:element name="Мой_город" type="название_города" />
+  
+	<xs:complexType name="Сп">
+      <xs:sequence>
+      <xs:element ref="Мой_город" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  
+  <xs:element name="Список" type = "Сп" />
+</xs:schema>
